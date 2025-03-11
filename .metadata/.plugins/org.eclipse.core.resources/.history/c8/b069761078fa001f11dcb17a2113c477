@@ -1,0 +1,25 @@
+package Excel;
+
+import java.io.FileInputStream;
+
+public class login {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String[][] testData = null;
+		String filePath = System.getProperty("\"C:\\Html\\Automatic_testing.xlsx\"");
+		FileInputStream file = new FileInputStream(filePath);
+		XSSFWorkbook wb = new XSSFWorkbook(file);
+		XSSFSheet ws = wb.getSheetAt("Selenium");
+		testData = new String[1][3];
+		for(int i =0;i<=ws.getLastRowNum();i++) {
+			Row r = ws.getRow(i);
+			for(int j = 0; j<r.getLastCellNum(),j++) {
+				testData[i][j] = String.valueOf(ws.getROw(i).getCell(j));
+			}
+		}
+		wb.close();
+		return testData;
+	}
+
+}

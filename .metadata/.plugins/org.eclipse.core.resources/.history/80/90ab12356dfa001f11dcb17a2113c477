@@ -1,0 +1,14 @@
+package testNG;
+
+public class Rediffmail {
+	
+	WebDriver driver;
+	
+	public RediffLoginPF(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.
+	}
+	
+	//@FindBy Annotation to find the elements
+
+}

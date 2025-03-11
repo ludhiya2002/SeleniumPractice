@@ -1,0 +1,26 @@
+package Practice;
+
+import java.util.HashMap;
+
+public class UniqueNumber {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int a[] = {2,4,7,9,6,3,3};
+		
+		HashMap<Integer,Integer> Map = new HashMap<>();
+		
+		for(int num:a) {
+			Map.put(num, Map.getOrDefault(num,0)+1);
+		}
+		
+		System.out.println("Unique numbers:");
+		for(int num:Map.keySet()) {
+			if(Map.get(num)==1) {
+				System.out.println(num+"");
+			}
+		}
+
+	}
+
+}

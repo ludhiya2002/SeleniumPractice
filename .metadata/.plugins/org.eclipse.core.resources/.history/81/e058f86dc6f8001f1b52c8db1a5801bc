@@ -1,0 +1,38 @@
+package testNG;
+
+import static org.testng.Assert.*;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class PracticeTestNG {
+	
+	@Test
+	public void TestGoogle() throws InterruptedException{
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("https://support.orangehrm.com/portal/en/signin");
+		driver.findElement(By.id("portal_signin")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//input[@placeholder='Email Address']")).sendKeys("ludhiya2002@gmail.com",Keys.ENTER);
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("ludhiya@123",Keys.ENTER);
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//button[contains(@class='primary')]")).click();
+		Thread.sleep(3000);
+		WebElement checkbox = driver.findElement(By.xpath("//input[@type='checkbox']"));
+		checkbox.click();
+		
+//		String expectedTitle="OrangeHRM - Google Search";
+//		String actualTitle = driver.getTitle();
+//		assertEquals(actualTitle,expectedTitle,"Title is mismatched");
+		assertTrue(checkbox.isSelected(),"Checkbox is not selected!");
+		driver.quit();
+			
+	}
+
+}

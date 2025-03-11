@@ -1,0 +1,9 @@
+package Practice;
+
+public class Uniqueharacters {
+	public static void main(String[] args) {
+		
+		String str = "abhgdks";
+		boolean isUnique = hasAllUniqueCharacters(str);
+	}
+}

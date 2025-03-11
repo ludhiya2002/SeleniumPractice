@@ -1,0 +1,32 @@
+package testNG;
+
+import static org.testng.Assert.*;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class PracticeTestNG {
+	
+	@Test
+	public void TestGoogle(){
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("https://support.orangehrm.com/portal/en/signin");
+		driver.findElement(By.id("portal_signin"));
+		
+		driver.findElement(By.xpath("//input[@placeholder='Email Address']")).sendKeys("ludhiya2002@gmail.com",Keys.ENTER);
+		
+		driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("ludhiya@123",Keys.ENTER);
+		driver.findElement(By.xpath("//input[@class='btn big-btn primary']")).click();
+		String expectedTitle="OrangeHRM - Google Search";
+		String actualTitle = driver.getTitle();
+		assertEquals(actualTitle,expectedTitle,"Title is mismatched");
+		assertTrue(false);
+		driver.quit();
+			
+	}
+
+}

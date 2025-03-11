@@ -1,0 +1,38 @@
+package StepDef;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+
+public class GoogleSearch {
+	WebDriver driver;
+	
+	@Given ("Browser is open")
+	public void browser_is_open() {
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		System.out.println("Browser is opened");
+	}
+	
+	@Given("user is on google search page")
+	public void user_is_on_google_search_page() {
+		searchBox = driver.findElement(By.name("q"));
+		searchBox.sendKeys("BDD Cucumber");
+	}
+	
+	@Then("hits enter")
+		public void hits_enter() {
+			Thread.sleep(2000);
+			searchBox.sendKeys(Keys.ENTER);
+			
+		}
+	@
+	}
+
+}

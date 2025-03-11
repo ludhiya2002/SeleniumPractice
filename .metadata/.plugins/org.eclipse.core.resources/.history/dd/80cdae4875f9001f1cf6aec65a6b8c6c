@@ -1,0 +1,74 @@
+package testNG;
+
+import static org.testng.Assert.assertTrue;
+
+
+import java.time.Duration;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+
+public class ParameterTestNG {
+	
+	WebDriver driver;
+	
+	@Parameters("browserName")
+	@BeforeTest
+	public void InitialiseBrowser(String browserName) throws InterruptedException {
+		//WebDriverManager.chromedriver().setup();
+		switch(browserName) {
+		case "chrome":
+			driver = new ChromeDriver();
+			break;
+		case "edge":
+			driver = new EdgeDriver();
+			break;
+		case "firefox":
+			driver = new FirefoxDriver();
+			break;
+		default:
+			System.err.println("Browsername is invalid ");
+			break;
+		}
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		Thread.sleep(3000);
+}
+	@AfterTest
+	public void Teardown() {
+		driver.quit();
+	}
+	
+	@Parameters("url")
+	@Test
+	public void LaunchApp(String url){
+		driver.get(url);
+	}
+		
+	
+	
+	@Test
+	public void EnterLoginDetails() throws InterruptedException {
+		driver.findElement(By.id("txtUsername")).sendKeys("Admin");
+		driver.findElement(By.id("txtPassword")).sendKeys("admin123");
+		driver.findElement(By.id("btnlogin")).click();
+		Thread.sleep(3000);
+		
+	}
+	
+}	
+	
+
+
+

@@ -1,0 +1,40 @@
+package StepDef;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.But;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class practice {
+	
+    public void i_am_a_tester(String testerType) {
+        System.out.println("I am a " + testerType + " tester"); // Fixed spacing
+    }
+
+    @When("I apply for a job")
+    public void i_apply_for_a_job() {
+        System.out.println("I apply for a job");
+    }
+
+    @Then("I got {string} paid job")
+    public void i_got_paid_job(String payOutcome) { 
+        System.out.println("I got " + payOutcome + " paid job"); 
+    }
+
+    @And("I am {string} satisfied with my salary")
+    public void i_am_satisfied_with_my_salary(String satisfactionStatus) {
+        System.out.println("I am " + satisfactionStatus + " satisfied with my salary");
+    }
+
+    @But("my parents are {string} satisfied")
+    public void parents_are_satisfied(String parentsSatisfaction) {
+        System.out.println("my parents are " + parentsSatisfaction + " satisfied");
+    }
+    @But("I am not sure about future prospects")
+	public void i_am_not_sure_about_future_prospects() {
+	    // Write code here that turns the phrase above into concrete actions
+	    //throw new io.cucumber.java.PendingException();
+		System.out.println("I am not sure about future prospects");
+    }
+}

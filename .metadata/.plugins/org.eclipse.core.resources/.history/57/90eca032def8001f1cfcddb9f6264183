@@ -1,0 +1,61 @@
+package testNG;
+
+import static org.testng.Assert.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+import java.time.Duration;
+	public class PracticeTestNG2 {
+	
+	    WebDriver driver;
+	    WebDriverWait wait;
+
+	    @BeforeClass
+	    public void setUp() {
+	        // Set up ChromeDriver
+	        driver = new ChromeDriver();
+	        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	        driver.manage().window().maximize();
+	    }
+
+	    @Test
+	    public void TestGoogle() {
+	        driver.get("https://support.orangehrm.com/portal/en/signin");
+
+	        WebElement signInButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("portal_signin")));
+	        signInButton.click();
+
+	        
+	        WebElement email= wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("username")));
+	        email.sendKeys("ludhiya2002@gmail.com", Keys.ENTER);
+
+	        
+	        WebElement password = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("password")));
+	        password.sendKeys("ludhiya@123", Keys.ENTER);
+
+	        
+	        WebElement login= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(@class,'primary')]")));
+	        login.click();
+
+	        
+	        WebElement checkbox = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='checkbox']")));
+	        checkbox.click();
+	        
+	        // Assertion (Optional)
+	        assertTrue(checkbox.isSelected(), "Checkbox is not selected!");
+	    }
+
+	    @AfterClass
+	    public void tearDown() {
+	        driver.quit();
+	    }
+	}
+
+

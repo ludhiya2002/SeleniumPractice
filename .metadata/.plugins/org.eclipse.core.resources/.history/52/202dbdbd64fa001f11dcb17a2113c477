@@ -1,0 +1,10 @@
+package testNG;
+
+public interface IListener {
+	
+	void duringTest();
+	void afterGTest();
+	void beforeTest();
+	void generate();
+
+}

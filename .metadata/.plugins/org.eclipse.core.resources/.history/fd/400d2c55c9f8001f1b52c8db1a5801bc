@@ -1,0 +1,56 @@
+package testNG;
+
+import static org.testng.Assert.assertTrue;
+
+import java.time.Duration;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class PracticeTestNG {
+	
+	WebDriver driver;
+	@BeforeClass
+	public void BeforeClass() {
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	}
+	@Test
+	public void TestGoogle() throws InterruptedException{
+	
+		    driver.get("https://support.orangehrm.com/portal/en/signin");
+
+		    System.out.println("Sign In:");
+		    driver.findElement(By.id("portal_signin")).click();
+
+		    System.out.println("Enter Email Address:");
+		    driver.findElement(By.xpath("//input[@placeholder='Email Address']")).sendKeys("ludhiya2002@gmail.com", Keys.ENTER);
+
+		    System.out.println("Enter Password:");
+		    driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("ludhiya@123", Keys.ENTER);
+
+		    System.out.println("Sign In");
+		    driver.findElement(By.xpath("//button[contains(@class,'primary')]")).click();
+
+		    System.out.println("Clicking Checkbox...");
+		    WebElement checkbox = driver.findElement(By.xpath("//input[@type='checkbox']"));
+		    checkbox.click();
+
+		    System.out.println("Test completed!");
+		}
+
+		
+//		String expectedTitle="OrangeHRM - Google Search";
+//		String actualTitle = driver.getTitle();
+//		assertEquals(actualTitle,expectedTitle,"Title is mismatched");
+//		assertTrue(checkbox.isSelected(),"Checkbox is not selected!");
+		
+			
+	}
+	
+
+

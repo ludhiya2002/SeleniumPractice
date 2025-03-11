@@ -1,0 +1,32 @@
+package testNG;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.Test;
+
+public class DependsTest {
+	
+	WebDriver driver;
+	@Test (dependsOnMethods = {"openBrowser"})//(priority = 1)
+	public void AsignIn() {
+		System.out.println("Sign in page...");
+		driver.get("https://support.orangehrm.com/portal/en/signin");
+	}
+	
+	@Test//(priority = 0)
+	public void openBrowser() {
+		System.out.println("Open browser will execute first");
+		driver=new ChromeDriver();
+	}
+	@Test (dependsOnMethods = {"AsignIn"})
+	public void viewDashBoard() {
+		System.out.println("View your dashboard");
+	}
+//	@AfterTest
+//	public void closeBrowser() throws InterruptedException {
+//		Thread.sleep(3000);
+//		driver.close();
+//	}
+
+}

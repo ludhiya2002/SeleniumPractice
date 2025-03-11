@@ -1,0 +1,28 @@
+package testNG;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import com.google.common.io.Files;
+
+public class HRMSDemo extends BaseClass{
+	
+	@Test
+	@Parameters({"browser"})
+	public void login(String browser) throws IOException, InterruptedException
+	{
+		invokeBrowser(browser);
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		Thread.sleep(3000);
+		//To Take Screenshot
+		File src=null;
+		src=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		Files.copy(src, new File("./screenshots/"+"page-"+System.currentTimeMillis()+".png")); // ./ it refers to the current maven project and screenshot refers to the screenshotfolder
+	}
+
+}

@@ -1,0 +1,38 @@
+Feature:About Tester
+As a manual tester, In order to get a high paid job, we need to learn automation
+
+
+Scenario: I am a manual tester
+Given I am a "Manual" tester
+When I apply for a job
+Then I got "less" paid job
+And I am "not" satisfied with the salary
+But My parents are "still" satisfied
+
+ 
+@regression
+Scenario: I am a manual tester
+Given I am a "Manual" tester
+When I apply for a job
+Then I got "less" paid job
+And I am "not" satisfied with the salary
+But My parents are "still" satisified
+But I am not sure about future prospects
+ 
+@smoke
+Scenario: I am a automation tester
+Given I am a "Automation" tester
+When I apply for a job
+Then I got "more" paid job
+And I am "very much" satisfied with the salary
+But My parents are "highly" satisified
+But I am not sure about future prospects
+ 
+@smoke @regression
+Scenario: I am a Performance tester
+Given I am a "Performance" tester
+When I apply for a job
+Then I got "highly" paid job
+And I am "very much" satisfied with the salary
+But My parents are "highly" satisified
+But I am not sure about future prospects

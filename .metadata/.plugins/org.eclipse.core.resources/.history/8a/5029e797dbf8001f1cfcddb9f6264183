@@ -1,0 +1,62 @@
+package testNG;
+
+import static org.testng.Assert.assertTrue;
+
+import java.time.Duration;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class PracticeTestNG {
+	
+	    WebDriver driver;
+
+	    @BeforeClass
+	    public void setUp() {
+	        driver = new ChromeDriver();
+	        driver.manage().window().maximize();
+	        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	    }
+
+	    @Test
+	    public void TestGoogle() {
+	       
+	        driver.get("https://support.orangehrm.com/portal/en/signin");
+
+	        // Enter email address
+	        //System.out.println("Entering email...");
+	        driver.findElement(By.name("username")).sendKeys("ludhiya2002@gmail.com", Keys.ENTER);
+
+	        // Enter password
+	        //System.out.println("Entering password...");
+	        driver.findElement(By.name("password")).sendKeys("ludhiya@123", Keys.ENTER);
+
+	        // Click the "Remember Me" checkbox
+	        WebElement rememberMeCheckbox = driver.findElement(By.xpath("//input[@type='checkbox']"));
+	        if (!rememberMeCheckbox.isSelected()) { // Ensure it's checked
+	            rememberMeCheckbox.click();
+	        }
+
+	        // Assert checkbox is selected
+	        assertTrue(rememberMeCheckbox.isSelected(), "Remember Me checkbox is not selected!");
+
+	        // Click the Sign In button
+	        System.out.println("Clicking Sign In button...");
+	        driver.findElement(By.xpath("//button[contains(@class,'primary')]")).click();
+
+	        System.out.println("Test execution completed.");
+	    }
+
+	    @AfterClass
+	    public void tearDown() {
+	        driver.quit();
+	    }
+	}
+
+
+

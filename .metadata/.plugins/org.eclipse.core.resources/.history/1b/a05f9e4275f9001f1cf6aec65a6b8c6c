@@ -1,0 +1,168 @@
+package testNG;
+
+import static org.testng.Assert.assertEquals;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class Assertionspractice {
+	
+	@Test
+	public void TestGoogle() throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.facebook.com/");
+		driver.findElement(By.name("q")).sendKeys("HYR Tutorials",Keys.ENTER);
+	    Thread.sleep(3000);
+		//System.out.println(driver.getTitle()); //return webpage title
+		
+	   String actualTitle = driver.getTitle();
+	   String expectedTitle = "Log in to Facebook";
+	   assertEquals(actualTitle,expectedTitle,"Title is mismatched");
+	   
+	   //URL Assertion
+	   String actualurl = driver.getCurrentUrl();
+	   String expectedUrl = "https://www.facebook.com/";
+	   assertEquals(actualUrl, expectedUrl,"URL is mismatched");
+	   
+	   //text assertion
+	   String actualText = driver.findElement(By.name("email")).getAttribute("value");
+	   String exceptedText = "";
+	   assertEquals(actualText,expectedText,"User text is mismatched");
+	   
+	   //BorderAssertion
+	   String actualBorder = driver.findElement(By.name("email")).getCssValue("border");
+	   String expectedBorder = "1px solid rgb(240,,40,73)";
+	   assertEquals(actualBorder,expectedText,"Username text is mismatched");
+	   
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

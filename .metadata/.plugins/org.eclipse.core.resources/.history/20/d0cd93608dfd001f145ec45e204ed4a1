@@ -1,0 +1,48 @@
+package StepDef;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.But;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class practice {
+	
+//	Given I am a "manual" tester
+//	When I apply for a job
+//	Then I got "less" paid job
+//	And I am "not" satisfied with my salary
+//	But my parents are "still" satisfied
+//	But I am not sure about future prospects
+//	@Given("I am a {string} tester")
+    public void i_am_a_tester(String testerType) {
+        System.out.println("I am a " + testerType + " tester"); // Fixed spacing
+    }
+
+    @When("I apply for a job")
+    public void i_apply_for_a_job() {
+        System.out.println("I apply for a job");
+    }
+
+    @Then("I got {string} paid job")
+    public void i_got_paid_job(String payOutcome) { // Better parameter name
+        System.out.println("I got " + payOutcome + " paid job"); // Fixed spacing
+    }
+
+    @And("I am {string} satisfied with my salary")
+    public void i_am_satisfied_with_my_salary(String satisfactionStatus) {
+        System.out.println("I am " + satisfactionStatus + " satisfied with my salary"); // Fixed spacing
+    }
+
+    @But("my parents are {string} satisfied")
+    public void parents_are_satisfied(String parentsSatisfaction) {
+        System.out.println("my parents are " + parentsSatisfaction + " satisfied"); // Fixed spacing
+    }
+
+    @But("I am not sure about future prospects")
+    public void i_am_not_sure_about_future_prospects() {
+        System.out.println("I am not sure about future prospects");
+    
+    
+    }
+}

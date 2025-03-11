@@ -1,0 +1,17 @@
+package testNG;
+
+import org.testng.annotations.Test;
+
+public class DependsTest {
+	
+	@Test (dependsOnMethods = {"openBrowser"})//(priority = 1)
+	public void signIn() {
+		System.out.println("Sign in page...");
+	}
+	
+	@Test//(priority = 0)
+	public void openBrowser() {
+		System.out.println("Open browser will execute first");
+	}
+
+}

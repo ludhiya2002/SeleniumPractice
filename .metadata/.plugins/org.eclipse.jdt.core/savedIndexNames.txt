@@ -156,7 +156,6 @@ INDEX VERSION 1.134+C:\Users\sampa\eclipse-workspace\.metadata\.plugins\org.ecli
 1833346534.index
 2809769319.index
 3491441337.index
-2268209959.index
 3853783058.index
 948174446.index
 1410135453.index
